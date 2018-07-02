@@ -11,7 +11,9 @@ dependencies:
   args: any
   glob: any
   tekartik_io_utils:
-    git: git://github.com/tekartik/io_utils.dart
+    git:
+      url: git://github.com/tekartik/io_utils.dart
+      ref: dart1
     version: '>=0.2.0'
   process_run: '>=0.5.4'
 
