@@ -5,6 +5,7 @@ import 'package:tekartik_cmd_utils/src/ps.dart';
 
 Future killCommand(String name) async {
   ProcessCmd cmd = new ProcessCmd("ps", ["x", "-o", "pid,cmd"]);
+
   ProcessResult processResult = await runCmd(cmd, commandVerbose: true);
   PsParser psParser = new PsParser(processResult.stdout.toString());
   List<PsLine> lines = psParser.findByCmd(name);
