@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 import 'package:process_run/cmd_run.dart';
-import 'package:tekartik_cmd_utils/src/pid.dart';
+import 'package:tekartik_cmd_utils/src/process_win.dart';
 import 'package:tekartik_cmd_utils/src/ps.dart';
 
 Future killCommand(String name) async {

@@ -6,7 +6,7 @@ library tekartik_cmd_utils.test.pid_test;
 
 import 'dart:io';
 
-import 'package:tekartik_cmd_utils/src/pid.dart';
+import 'package:tekartik_cmd_utils/src/process_win.dart';
 import 'package:test/test.dart';
 
 void main() {

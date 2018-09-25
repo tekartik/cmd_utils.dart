@@ -23,7 +23,7 @@ Future<List<String>> getProcessIds(String command) async {
       pids.add(pid);
     }
   }
-  print(pids);
+  // print(pids);
   return pids;
 }
 
