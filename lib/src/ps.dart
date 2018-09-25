@@ -9,9 +9,9 @@ class PsParser {
 
     for (String line in lines) {
       if (header == null) {
-        header = new PsHeader(line);
+        header = PsHeader(line);
       } else {
-        this.lines.add(new PsLine(line, header: header));
+        this.lines.add(PsLine(line, header: header));
       }
     }
   }
@@ -57,7 +57,7 @@ class PsHeader extends _PsLineBase {
   }
 }
 
-PsHeader _defaultHeader = new PsHeader("PID CMD");
+PsHeader _defaultHeader = PsHeader("PID CMD");
 
 class PsLine extends _PsLineBase {
   PsHeader _header;
@@ -81,7 +81,7 @@ class PsLine extends _PsLineBase {
 
 }
 
-var spaceSplitRegExp = new RegExp('\\s+');
+var spaceSplitRegExp = RegExp('\\s+');
 
 class _PsLineBase {
   List<String> _parts;

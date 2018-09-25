@@ -11,7 +11,7 @@ const String _FLAG_HELP = 'help';
 const String scriptName = "kill_cmd";
 
 main(List<String> args) async {
-  var parser = new ArgParser();
+  var parser = ArgParser();
 
   parser.addFlag(_FLAG_HELP, abbr: 'h', help: 'Usage help', negatable: false);
 
@@ -38,6 +38,11 @@ main(List<String> args) async {
   }
 
   for (String name in results.rest) {
-    await killCommand(name);
+    int count = await killAllCommandsByName(name);
+    if (count == 0) {
+      stderr.writeln("*${name}* process not found");
+    } else {
+      stdout.writeln('$count process killed');
+    }
   }
 }
