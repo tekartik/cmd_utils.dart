@@ -2,6 +2,17 @@
 
 Linux command line tools
 
+## Setup
+
+````yaml
+dependencies:
+  tekartik_cmd_utils:
+    git:
+      url: git://github.com/tekartik/cmd_utils.dart
+      ref: dart2
+    version: '>=0.2.0'
+
+````
 ## kill_cmd
 
 kill all chrome instance
@@ -12,17 +23,3 @@ Kill qemu
 
     kill_cmd qemu
     
-## Activation
-
-### From git repository
-
-    pub global activate -s git git://github.com/tekartik/cmd_utils.dart
-
-### From local path
-
-    pub global activate -s path .
-    
-## Legal
-
-Created from templates made available by Stagehand under a BSD-style
-[license](https://github.com/dart-lang/stagehand/blob/master/LICENSE).
