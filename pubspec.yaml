@@ -1,6 +1,6 @@
 name: tekartik_cmd_utils
 description: Linux command line tools
-version: 0.2.2
+version: 0.2.3
 homepage: https://github.com/tekartik/cmd_utils.dart
 author: alex <alex@tekartik.com>
 
@@ -15,7 +15,7 @@ dependencies:
     git:
       url: git://github.com/tekartik/io_utils.dart
       ref: dart2
-    version: '>=0.2.0 <2.0.0'
+    version: '>=0.5.1'
   process_run: '>=0.5.4'
 
 dev_dependencies:

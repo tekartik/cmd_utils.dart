@@ -2,6 +2,7 @@
 // Copyright (c) 2015, <your name>. All rights reserved. Use of this source code
 // is governed by a BSD-style license that can be found in the LICENSE file.
 
+import 'dart:async';
 import 'dart:io';
 
 import 'package:args/args.dart';
@@ -10,7 +11,7 @@ import 'package:tekartik_cmd_utils/kill_cmd.dart';
 const String _FLAG_HELP = 'help';
 const String scriptName = "kill_cmd";
 
-main(List<String> args) async {
+Future main(List<String> args) async {
   var parser = ArgParser();
 
   parser.addFlag(_FLAG_HELP, abbr: 'h', help: 'Usage help', negatable: false);
@@ -19,9 +20,9 @@ main(List<String> args) async {
 
   parser.parse(args);
 
-  bool help = results[_FLAG_HELP];
+  final help = results[_FLAG_HELP] as bool;
 
-  _usage() {
+  void _usage() {
     print(
         "${scriptName} <part_of_process_name> [<other_part_of_process_name> ...]");
     print(parser.usage);
@@ -32,7 +33,7 @@ main(List<String> args) async {
     return;
   }
 
-  if (results.rest.length == 0) {
+  if (results.rest.isEmpty) {
     _usage();
     exit(1);
   }
