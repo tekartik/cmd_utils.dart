@@ -16,9 +16,8 @@ dependencies:
       url: git://github.com/tekartik/io_utils.dart
       ref: dart2
     version: '>=0.5.1'
-  process_run: '>=0.5.4'
+  process_run: '>=0.10.2'
 
 dev_dependencies:
   test: ">=1.0.0"
   dev_test: any
-  process_run: '>=0.10.2'

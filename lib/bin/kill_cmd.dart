@@ -8,19 +8,19 @@ import 'dart:io';
 import 'package:args/args.dart';
 import 'package:tekartik_cmd_utils/kill_cmd.dart';
 
-const String _FLAG_HELP = 'help';
+const String flagHelp = 'help';
 const String scriptName = "kill_cmd";
 
 Future main(List<String> args) async {
   var parser = ArgParser();
 
-  parser.addFlag(_FLAG_HELP, abbr: 'h', help: 'Usage help', negatable: false);
+  parser.addFlag(flagHelp, abbr: 'h', help: 'Usage help', negatable: false);
 
   var results = parser.parse(args);
 
   parser.parse(args);
 
-  final help = results[_FLAG_HELP] as bool;
+  final help = results[flagHelp] as bool;
 
   void _usage() {
     print(
