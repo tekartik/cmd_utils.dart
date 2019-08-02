@@ -1,7 +1,9 @@
 language: dart
-sudo: false
+sudo: required
+dist: trusty
 dart:
+  - '2.4.0'
   - stable
   - dev
 script:
-  - tool/travis.sh
+  - dart tool/travis.dart
