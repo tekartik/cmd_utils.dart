@@ -10,12 +10,12 @@ Future<List<String>> getProcessIds(String command) async {
   var pids = <String>[];
   var result = await runCmd(cmd);
   var csv = result.stdout.toString();
-  List<List<dynamic>> rows = const CsvToListConverter().convert(csv);
+  final rows = const CsvToListConverter().convert(csv);
   // [Image Name, PID, Session Name, Session#, Mem Usage]
   var columns = rows.first;
   var commandNameIndex = columns.indexOf('Image Name');
   var pidIndex = columns.indexOf('PID');
-  for (int i = 1; i < rows.length; i++) {
+  for (var i = 1; i < rows.length; i++) {
     var row = rows[i];
     var commandName = row[commandNameIndex].toString();
 

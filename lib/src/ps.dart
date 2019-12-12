@@ -5,9 +5,9 @@ class PsParser {
   List<PsLine> lines = [];
 
   PsParser(String shellPsStdout) {
-    Iterable<String> lines = LineSplitter.split(shellPsStdout);
+    final lines = LineSplitter.split(shellPsStdout);
 
-    for (String line in lines) {
+    for (final line in lines) {
       if (header == null) {
         header = PsHeader(line);
       } else {
@@ -17,7 +17,7 @@ class PsParser {
   }
 
   PsLine findFirstByCmd(String contains) {
-    for (PsLine line in lines) {
+    for (final line in lines) {
       try {
         if (line.cmd.contains(contains)) {
           return line;
@@ -31,8 +31,8 @@ class PsParser {
   }
 
   List<PsLine> findByCmd(String contains) {
-    List<PsLine> psLines = [];
-    for (PsLine line in lines) {
+    final psLines = <PsLine>[];
+    for (final line in lines) {
       try {
         if (line.cmd.contains(contains)) {
           psLines.add(line);
@@ -57,7 +57,7 @@ class PsHeader extends _PsLineBase {
   }
 }
 
-PsHeader _defaultHeader = PsHeader("PID CMD");
+PsHeader _defaultHeader = PsHeader('PID CMD');
 
 class PsLine extends _PsLineBase {
   PsHeader _header;
@@ -66,17 +66,17 @@ class PsLine extends _PsLineBase {
     _header = header ?? _defaultHeader;
   }
 
-  int get pid => int.parse(_getColumn("PID"));
+  int get pid => int.parse(_getColumn('PID'));
 
   String _getColumn(String name) {
-    int index = _header.findPartIndex(name);
+    var index = _header.findPartIndex(name);
     if (index != null && index >= 0) {
       return _parts[index];
     }
     return null;
   }
 
-  String get cmd => _getColumn("CMD"); //_getColumn("NAME");
+  String get cmd => _getColumn('CMD'); //_getColumn('NAME');
 // shell     7398  1310  1217116 16816 binder_thr a9529424 S com.android.commands.monkey
 
 }
@@ -91,5 +91,5 @@ class _PsLineBase {
   }
 
   @override
-  String toString() => _parts.join(" ");
+  String toString() => _parts.join(' ');
 }
