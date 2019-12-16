@@ -17,14 +17,14 @@ Future<int> killAllCommandsByName(String name) async {
     }
     return pids.length;
   } else {
-    ProcessCmd cmd = ProcessCmd("ps", ["x", "-o", "pid,cmd"]);
+    final cmd = ProcessCmd('ps', ['x', '-o', 'pid,cmd']);
 
-    ProcessResult processResult = await runCmd(cmd, commandVerbose: true);
-    PsParser psParser = PsParser(processResult.stdout.toString());
-    List<PsLine> lines = psParser.findByCmd(name);
-    for (PsLine line in lines) {
+    final processResult = await runCmd(cmd, commandVerbose: true);
+    final psParser = PsParser(processResult.stdout.toString());
+    final lines = psParser.findByCmd(name);
+    for (final line in lines) {
       print(line);
-      ProcessCmd cmd = ProcessCmd("kill", ["-9", "${line.pid}"]);
+      final cmd = ProcessCmd('kill', ['-9', '${line.pid}']);
       await runCmd(cmd, verbose: true);
     }
 

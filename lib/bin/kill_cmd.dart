@@ -9,7 +9,7 @@ import 'package:args/args.dart';
 import 'package:tekartik_cmd_utils/kill_cmd.dart';
 
 const String flagHelp = 'help';
-const String scriptName = "kill_cmd";
+const String scriptName = 'kill_cmd';
 
 Future main(List<String> args) async {
   var parser = ArgParser();
@@ -24,7 +24,7 @@ Future main(List<String> args) async {
 
   void _usage() {
     print(
-        "${scriptName} <part_of_process_name> [<other_part_of_process_name> ...]");
+        '${scriptName} <part_of_process_name> [<other_part_of_process_name> ...]');
     print(parser.usage);
   }
 
@@ -38,10 +38,10 @@ Future main(List<String> args) async {
     exit(1);
   }
 
-  for (String name in results.rest) {
-    int count = await killAllCommandsByName(name);
+  for (final name in results.rest) {
+    var count = await killAllCommandsByName(name);
     if (count == 0) {
-      stderr.writeln("*${name}* process not found");
+      stderr.writeln('*${name}* process not found');
     } else {
       stdout.writeln('$count process killed');
     }
