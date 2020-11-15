@@ -3,6 +3,7 @@ description: Linux command line tools
 version: 0.4.0
 homepage: https://github.com/tekartik/cmd_utils.dart
 author: alex <alex@tekartik.com>
+publish_to: none
 
 environment:
   sdk: '>=2.6.0 <3.0.0'
