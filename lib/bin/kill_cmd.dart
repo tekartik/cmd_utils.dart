@@ -24,7 +24,7 @@ Future main(List<String> args) async {
 
   void _usage() {
     print(
-        '${scriptName} <part_of_process_name> [<other_part_of_process_name> ...]');
+        '$scriptName <part_of_process_name> [<other_part_of_process_name> ...]');
     print(parser.usage);
   }
 
@@ -41,7 +41,7 @@ Future main(List<String> args) async {
   for (final name in results.rest) {
     var count = await killAllCommandsByName(name);
     if (count == 0) {
-      stderr.writeln('*${name}* process not found');
+      stderr.writeln('*$name* process not found');
     } else {
       stdout.writeln('$count process killed');
     }
