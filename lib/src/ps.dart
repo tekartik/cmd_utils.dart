@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 class PsParser {
-  PsHeader header;
+  PsHeader? header;
   List<PsLine> lines = [];
 
   PsParser(String shellPsStdout) {
@@ -16,10 +16,10 @@ class PsParser {
     }
   }
 
-  PsLine findFirstByCmd(String contains) {
+  PsLine? findFirstByCmd(String contains) {
     for (final line in lines) {
       try {
-        if (line.cmd.contains(contains)) {
+        if (line.cmd!.contains(contains)) {
           return line;
         }
       } catch (e) {
@@ -34,7 +34,7 @@ class PsParser {
     final psLines = <PsLine>[];
     for (final line in lines) {
       try {
-        if (line.cmd.contains(contains)) {
+        if (line.cmd!.contains(contains)) {
           psLines.add(line);
         }
       } catch (e) {
@@ -60,23 +60,23 @@ class PsHeader extends _PsLineBase {
 PsHeader _defaultHeader = PsHeader('PID CMD');
 
 class PsLine extends _PsLineBase {
-  PsHeader _header;
+  late PsHeader _header;
 
-  PsLine(String line, {PsHeader header}) : super(line) {
+  PsLine(String line, {PsHeader? header}) : super(line) {
     _header = header ?? _defaultHeader;
   }
 
-  int get pid => int.parse(_getColumn('PID'));
+  int get pid => int.parse(_getColumn('PID')!);
 
-  String _getColumn(String name) {
+  String? _getColumn(String name) {
     var index = _header.findPartIndex(name);
-    if (index != null && index >= 0) {
+    if (index >= 0) {
       return _parts[index];
     }
     return null;
   }
 
-  String get cmd => _getColumn('CMD'); //_getColumn('NAME');
+  String? get cmd => _getColumn('CMD'); //_getColumn('NAME');
 // shell     7398  1310  1217116 16816 binder_thr a9529424 S com.android.commands.monkey
 
 }
@@ -84,7 +84,7 @@ class PsLine extends _PsLineBase {
 var spaceSplitRegExp = RegExp('\\s+');
 
 class _PsLineBase {
-  List<String> _parts;
+  late List<String> _parts;
 
   _PsLineBase(String line) {
     _parts = line.trim().split(spaceSplitRegExp);
