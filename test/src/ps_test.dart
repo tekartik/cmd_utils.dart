@@ -19,9 +19,9 @@ void main() {
  9094 /media/ssd/apps/android-sdk-linux/emulator/emulator64-crash-service -pipe 4 -ppid 9092 -data-dir /tmp/android-alex/56f6a900-3b12-4da0-8557-41edb14b5aa8
 ''';
       final parser = PsParser(out);
-      expect(parser.header.findPartIndex('PID'), 0);
-      expect(parser.header.findPartIndex('CMD'), 1);
-      expect(parser.findFirstByCmd('thunder').pid, 958);
+      expect(parser.header!.findPartIndex('PID'), 0);
+      expect(parser.header!.findPartIndex('CMD'), 1);
+      expect(parser.findFirstByCmd('thunder')!.pid, 958);
       expect(parser.findByCmd('chrome').length, 2);
     });
   });
