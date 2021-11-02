@@ -8,7 +8,7 @@ Linux command line tools
 dependencies:
   tekartik_cmd_utils:
     git:
-      url: git://github.com/tekartik/cmd_utils.dart
+      url: https://github.com/tekartik/cmd_utils.dart
       ref: dart2
     version: '>=0.2.0'
 
