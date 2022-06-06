@@ -22,19 +22,19 @@ Future main(List<String> args) async {
 
   final help = results[flagHelp] as bool;
 
-  void _usage() {
+  void printUsage() {
     print(
         '$scriptName <part_of_process_name> [<other_part_of_process_name> ...]');
     print(parser.usage);
   }
 
   if (help) {
-    _usage();
+    printUsage();
     return;
   }
 
   if (results.rest.isEmpty) {
-    _usage();
+    printUsage();
     exit(1);
   }
 
