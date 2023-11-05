@@ -9,7 +9,7 @@ dependencies:
   tekartik_cmd_utils:
     git:
       url: https://github.com/tekartik/cmd_utils.dart
-      ref: dart2_3
+      ref: dart3a
     version: '>=0.2.0'
 ```
 ## kill_cmd
