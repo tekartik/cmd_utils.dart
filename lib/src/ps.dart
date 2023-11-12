@@ -48,7 +48,7 @@ class PsParser {
 
 // USER      PID   PPID  VSIZE  RSS   WCHAN            PC  NAME
 class PsHeader extends _PsLineBase {
-  PsHeader(String line) : super(line) {
+  PsHeader(super.line) {
     //devPrint(_parts);
   }
 
@@ -62,7 +62,7 @@ PsHeader _defaultHeader = PsHeader('PID CMD');
 class PsLine extends _PsLineBase {
   late PsHeader _header;
 
-  PsLine(String line, {PsHeader? header}) : super(line) {
+  PsLine(super.line, {PsHeader? header}) {
     _header = header ?? _defaultHeader;
   }
 
