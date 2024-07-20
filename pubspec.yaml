@@ -21,7 +21,7 @@ dependencies:
 
 dev_dependencies:
   test: ">=1.0.0"
-  dev_test: '>=0.13.2-dev.3'
+  dev_build: '>=0.13.2-dev.3'
   tekartik_common_utils:
     git:
       url: https://github.com/tekartik/common_utils.dart

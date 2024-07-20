@@ -4,8 +4,8 @@
 
 library apk_utils_test;
 
-import 'package:dev_test/test.dart';
 import 'package:tekartik_cmd_utils/src/ps.dart';
+import 'package:test/test.dart';
 
 void main() {
   group('ps', () {
